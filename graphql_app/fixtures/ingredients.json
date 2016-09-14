@@ -1,0 +1,52 @@
+[
+  {
+    "model": "graphql_app.category",
+    "pk": 1,
+    "fields": {
+      "name": "Dairy"
+    }
+  },
+  {
+    "model": "graphql_app.category",
+    "pk": 2,
+    "fields": {
+      "name": "Meat"
+    }
+  },
+  {
+    "model": "graphql_app.ingredient",
+    "pk": 1,
+    "fields": {
+      "name": "Eggs",
+      "notes": "Good old eggs",
+      "category": 1
+    }
+  },
+  {
+    "model": "graphql_app.ingredient",
+    "pk": 2,
+    "fields": {
+      "name": "Milk",
+      "notes": "Comes from a cow",
+      "category": 1
+    }
+  },
+  {
+    "model": "graphql_app.ingredient",
+    "pk": 3,
+    "fields": {
+      "name": "Beef",
+      "notes": "Much like milk, this comes from a cow",
+      "category": 2
+    }
+  },
+  {
+    "model": "graphql_app.ingredient",
+    "pk": 4,
+    "fields": {
+      "name": "Chicken",
+      "notes": "Definitely doesn't come from a cow",
+      "category": 2
+    }
+  }
+]
