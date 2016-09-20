@@ -6,7 +6,7 @@ import ReactDOM from "react-dom";
 
 class HelloWorld extends React.Component {
     render() {
-        return <div>Hello world2e2e2!</div>
+        return <div>Hello world!</div>
     }
 }
 
