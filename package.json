@@ -1,0 +1,29 @@
+{
+  "name": "graphql_project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./frontend/app/main.jsx",
+  "dependencies": {
+    "babel-core": "^6.14.0",
+    "babel-loader": "^6.2.5",
+    "babel-preset-es2015": "^6.14.0",
+    "babel-preset-react": "^6.11.1",
+    "babelify": "^7.3.0",
+    "react": "^15.3.2",
+    "react-dom": "^15.3.2",
+    "webpack": "^1.13.2"
+  },
+  "devDependencies": {
+    "babel-loader": "^6.2.5",
+    "react-hot-loader": "^3.0.0-beta.4",
+    "webpack": "^1.13.2"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack -w",
+    "start": "webpack-dev-server --hot --progress --inline",
+    "server": "npm start && npm build"
+  },
+  "author": "",
+  "license": "ISC"
+}

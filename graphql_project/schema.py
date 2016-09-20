@@ -1,4 +1,5 @@
 import graphene
+from graphene.contrib.django.debug import DjangoDebugMiddleware
 
 import graphql_app.schema as schema
 
@@ -9,5 +10,18 @@ class Query(schema.Query):
     pass
 
 
-schema = graphene.Schema(name='Cookbook Schema')
+class Category(graphene.ObjectType):
+    name = graphene.String()
+
+
+class MyMutations(graphene.ObjectType):
+    create_category = graphene.Field(schema.CreateCategory)
+    category = graphene.Field(Category)
+
+
+schema = graphene.Schema(
+    name='Category Schema',
+    mutation=MyMutations,
+    middlewares=[DjangoDebugMiddleware()]
+)
 schema.query = Query
