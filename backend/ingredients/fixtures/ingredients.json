@@ -1,20 +1,20 @@
 [
   {
-    "model": "graphql_app.category",
+    "model": "ingredients.category",
     "pk": 1,
     "fields": {
       "name": "Dairy"
     }
   },
   {
-    "model": "graphql_app.category",
+    "model": "ingredients.category",
     "pk": 2,
     "fields": {
       "name": "Meat"
     }
   },
   {
-    "model": "graphql_app.ingredient",
+    "model": "ingredients.ingredient",
     "pk": 1,
     "fields": {
       "name": "Eggs",
@@ -23,7 +23,7 @@
     }
   },
   {
-    "model": "graphql_app.ingredient",
+    "model": "ingredients.ingredient",
     "pk": 2,
     "fields": {
       "name": "Milk",
@@ -32,7 +32,7 @@
     }
   },
   {
-    "model": "graphql_app.ingredient",
+    "model": "ingredients.ingredient",
     "pk": 3,
     "fields": {
       "name": "Beef",
@@ -41,7 +41,7 @@
     }
   },
   {
-    "model": "graphql_app.ingredient",
+    "model": "ingredients.ingredient",
     "pk": 4,
     "fields": {
       "name": "Chicken",

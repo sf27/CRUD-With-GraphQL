@@ -2,7 +2,7 @@
   "name": "graphql_project",
   "version": "1.0.0",
   "description": "",
-  "main": "./frontend/app/main.jsx",
+  "main": "./app/main.jsx",
   "dependencies": {
     "babel-core": "^6.14.0",
     "babel-loader": "^6.2.5",
@@ -11,12 +11,17 @@
     "babelify": "^7.3.0",
     "react": "^15.3.2",
     "react-dom": "^15.3.2",
-    "webpack": "^1.13.2"
+    "react-redux": "^4.4.5",
+    "redux": "^3.6.0",
+    "webpack": "^1.13.2",
+    "webpack-dev-server": "1.14.0"
   },
   "devDependencies": {
     "babel-loader": "^6.2.5",
     "react-hot-loader": "^3.0.0-beta.4",
-    "webpack": "^1.13.2"
+    "redux-devtools": "^3.3.1",
+    "webpack": "1.13.2",
+    "webpack-dev-server": "1.14.0"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
