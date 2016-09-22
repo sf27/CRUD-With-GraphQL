@@ -1,5 +1,6 @@
+const debug = process.env.NODE_ENV !== 'production';
 module.exports = {
-    entry: './app/main.jsx',
+    entry: './app/modules/operation/main.js',
     output: {
         path: './public/',
         filename: "bundle.js"
@@ -14,5 +15,6 @@ module.exports = {
                 }
             }
         ]
-    }
+    },
+    devtool: debug ? 'inline-sourcemap' : null
 };

@@ -2,7 +2,7 @@
   "name": "graphql_project",
   "version": "1.0.0",
   "description": "",
-  "main": "./app/main.jsx",
+  "main": "./app/modules/operation/main.js",
   "dependencies": {
     "babel-core": "^6.14.0",
     "babel-loader": "^6.2.5",
