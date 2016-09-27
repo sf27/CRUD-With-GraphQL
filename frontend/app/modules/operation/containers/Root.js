@@ -1,12 +1,12 @@
 import React from "react";
 import {Provider} from "react-redux";
 import store from "../store";
-import OperationC from "../components/OperationC";
+import MainC from "../components/MainC";
 
-const OperationCRoot = () => (
+const MainCRoot = () => (
     <Provider store={store}>
-        <OperationC />
+        <MainC />
     </Provider>
 );
 
-export default OperationCRoot;
+export default MainCRoot;

@@ -1,9 +1,16 @@
 import React from "react";
 import {render} from "react-dom";
-import {Provider} from "react-redux";
-import OperationCRoot from "./containers/Root";
+import MainCRoot from "./containers/Root";
+import {ApolloProvider} from "react-apollo";
+import ApolloClient, {createNetworkInterface} from "apollo-client";
+
+const client = new ApolloClient({
+    networkInterface: createNetworkInterface('http://127.0.0.1:8000/graphql'),
+});
 
 render(
-    <OperationCRoot />,
-    document.getElementById('operation')
+    <ApolloProvider client={client}>
+        <MainCRoot/>
+    </ApolloProvider>,
+    document.getElementById('main')
 );
