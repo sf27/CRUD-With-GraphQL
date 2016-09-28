@@ -1,12 +1,17 @@
-Back-End:
-1. 
+# CRUD With GraphQL - Test Project:
+Project used to integrate a list of technologies and test GraphQL as a substitute for restful services.
 
+## Instructions:
 
-Front-End:
+### Docker:  
+1. Clone the repo:  
+   `git clone git@github.com:sf27/CRUD-With-GraphQL.git`  
+2. Build the docker image:  
+   `cd CRUD-With-GraphQL/ && docker-compose build`  
+3. Starts the containers in the background and leaves them running.:  
+   `docker-compose up -d`  
+4. Open the following URL:   
+   http://localhost:8080/   
 
-1. Install the dependencies:
-    `cd frontend && npm install`
-2. Run the dev server:
-    `npm run-script start`
-3. Compress js files and add a watch to detect changes in files:
-    `npm run-script build`
+**Technologies:**  
+   React/Redux, Apollo GraphQL Client, Django/Graphene, Docker, Webpack, npm.  
