@@ -23,35 +23,57 @@ class ListCategories extends Component {
         const {onClickAdd, onClickSubstract} = this.props;
 
         return (
-            <div>
-                <div>
-                    <ul>
-                        {loading ?
-                            "Loading categories" :
-                            allCategories.edges.map((name, index) => {
-                                return <li key={ index }>
-                                    <EditCategoryC
-                                        key={ index }
-                                        name={name.node.name}
-                                        index={index}
-                                        refetch={refetch}
-                                    />
-                                    <DeleteCategoryC
-                                        name={name.node.name}
-                                        onClickSubstract={onClickSubstract}
-                                        refetch={refetch}
-                                    />
-                                </li>
-                            })
-                        }
-                    </ul>
+            <div className="row center-xs">
+                <div className="col-xs-6">
+                    <div className="box">
+                        <div className="row">
+                            <div className="col-xs-12">
+                                {!loading &&
+                                <CounterCategories number={allCategories.edges.length}/>
+                                }
+                            </div>
+                        </div>
+                        <div className="row">
+                            <div className="col-xs-12">
+                                <SaveCategoryC refetch={refetch} onClickAdd={onClickAdd}/>
+                            </div>
+                        </div>
+                        <div className="row">
+                            <div className="col-xs-12">
+                                {loading ?
+                                    "Loading categories" :
+                                    allCategories.edges.map((name, index) => {
+                                        return <div className="box" key={ index }>
+                                            <div className="row">
+                                                <div className="col-xs">
+                                                    <div className="box">
+                                                        <EditCategoryC
+                                                            key={ index }
+                                                            name={name.node.name}
+                                                            index={index}
+                                                            refetch={refetch}
+                                                        />
+                                                    </div>
+                                                </div>
+                                                <div className="col-xs">
+                                                    <div className="box">
+                                                        <DeleteCategoryC
+                                                            name={name.node.name}
+                                                            onClickSubstract={onClickSubstract}
+                                                            refetch={refetch}
+                                                        />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    })
+                                }
+
+
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div>
-                    <SaveCategoryC refetch={refetch} onClickAdd={onClickAdd}/>
-                </div>
-                {!loading &&
-                <CounterCategories number={allCategories.edges.length}/>
-                }
             </div>
         )
     }
