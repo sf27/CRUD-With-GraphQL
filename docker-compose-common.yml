@@ -1,0 +1,18 @@
+version: '2'
+
+services:
+  django-develoment:
+      build:
+        context: .
+        dockerfile: Dockerfile-Django
+      volumes:
+        - ./backend:/graphql_project/backend
+      working_dir: /graphql_project/backend/
+
+  node-develoment:
+      build:
+        context: .
+        dockerfile: Dockerfile-Node
+      volumes:
+        - ./frontend:/graphql_project/frontend
+      working_dir: /graphql_project/frontend

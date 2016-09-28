@@ -1,23 +1,33 @@
 import React, {Component, PropTypes} from "react";
 import {connect} from "react-redux";
-import {onClickAdd, onClickSubstract} from "../reducers";
+import {onClickAdd, onClickSubstract, addNTimes} from "../reducers";
 import gql from "graphql-tag";
 import {graphql} from "react-apollo";
 import SaveCategoryC from "./SaveCategoryC";
 import EditCategoryC from "./EditCategoryC";
 import DeleteCategoryC from "./DeleteCategoryC";
 
+class CounterCategories extends Component {
+    render() {
+        const {number} = this.props;
+        return <div>
+            <h1>Redux Counter</h1>
+            <h2>{number}</h2>
+        </div>
+    }
+}
+
 class ListCategories extends Component {
     render() {
         const {allCategories, loading, refetch} = this.props.data;
-        const {value, onClickAdd, onClickSubstract} = this.props;
-        console.log(this.props);
+        const {onClickAdd, onClickSubstract} = this.props;
+
         return (
             <div>
                 <div>
                     <ul>
                         {loading ?
-                            "Cargando lista de categorias" :
+                            "Loading categories" :
                             allCategories.edges.map((name, index) => {
                                 return <li key={ index }>
                                     <EditCategoryC
@@ -39,10 +49,9 @@ class ListCategories extends Component {
                 <div>
                     <SaveCategoryC refetch={refetch} onClickAdd={onClickAdd}/>
                 </div>
-                <div>
-                    <h1>Redux Counter</h1>
-                    <h2>{value}</h2>
-                </div>
+                {!loading &&
+                <CounterCategories number={allCategories.edges.length}/>
+                }
             </div>
         )
     }
@@ -54,7 +63,7 @@ ListCategories.propTypes = {
         allCategories: PropTypes.object,
     }).isRequired,
     onClickAdd: PropTypes.func.isRequired,
-    onClickSubstract: PropTypes.func.isRequired,
+    onClickSubstract: PropTypes.func.isRequired
 };
 
 const AllCategories = gql`
@@ -70,9 +79,10 @@ const AllCategories = gql`
 
 const mapStateToProps = (state) => (
 {
-    value: state
+    number: state.number
 }
 );
+
 
 const mapDispatchToProps = (dispatch) => (
 {

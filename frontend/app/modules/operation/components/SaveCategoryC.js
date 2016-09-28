@@ -10,7 +10,17 @@ class SaveCategoryC extends Component {
         };
     }
 
+    handleKeyPress = (event) => {
+        if (event.charCode == 13) {
+            this.handleSave();
+        }
+    };
+
     onSave = () => {
+        this.handleSave();
+    };
+
+    handleSave = () => {
         if (this.state.message) {
             this.props.submit(this.state.message)
                 .then(({data}) => {
@@ -33,8 +43,13 @@ class SaveCategoryC extends Component {
     render() {
         return (
             <div>
-                <input type="text" value={this.state.message} onChange={this.handleChange}/>
-                <button onClick={this.onSave}>Guardar</button>
+                <input
+                    type="text"
+                    value={this.state.message}
+                    onChange={this.handleChange}
+                    onKeyPress={this.handleKeyPress}
+                />
+                <button onClick={this.onSave}>Save</button>
             </div>
         );
     }
