@@ -42,14 +42,17 @@ class SaveCategoryC extends Component {
 
     render() {
         return (
-            <div>
+            <div className="form-group">
                 <input
                     type="text"
+                    className="form-control"
                     value={this.state.message}
                     onChange={this.handleChange}
                     onKeyPress={this.handleKeyPress}
                 />
-                <button onClick={this.onSave}>Save</button>
+                <button className="btn btn-default" onClick={this.onSave}>
+                    Save <span className="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                </button>
             </div>
         );
     }

@@ -17,7 +17,9 @@ class DeleteCategoryC extends Component {
 
     render() {
         return (
-            <button onClick={this.handleClick}>X</button>
+            <button className="btn btn-danger" onClick={this.handleClick}>
+                <span className="glyphicon glyphicon-remove" aria-hidden="true"></span>
+            </button>
         );
     }
 }

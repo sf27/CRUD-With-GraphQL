@@ -11,8 +11,10 @@ class CounterCategories extends Component {
     render() {
         const {number} = this.props;
         return <div>
-            <h1>Redux Counter</h1>
-            <h2>{number}</h2>
+            <div className="page-header">
+                <h1>Counter</h1>
+                <h2>{number}</h2>
+            </div>
         </div>
     }
 }
@@ -34,18 +36,18 @@ class ListCategories extends Component {
                             </div>
                         </div>
                         <div className="row">
-                            <div className="col-xs-12">
+                            <div className="col-xs-12 col-md-12 col-sm-12">
                                 <SaveCategoryC refetch={refetch} onClickAdd={onClickAdd}/>
                             </div>
                         </div>
                         <div className="row">
-                            <div className="col-xs-12">
+                            <div className="col-xs-12 list-group">
                                 {loading ?
                                     "Loading categories" :
                                     allCategories.edges.map((name, index) => {
-                                        return <div className="box" key={ index }>
+                                        return <div className="box list-group-item" type="button" key={ index }>
                                             <div className="row">
-                                                <div className="col-xs">
+                                                <div className="col-xs-12 col-md-10 col-sm-10">
                                                     <div className="box">
                                                         <EditCategoryC
                                                             key={ index }
@@ -55,7 +57,7 @@ class ListCategories extends Component {
                                                         />
                                                     </div>
                                                 </div>
-                                                <div className="col-xs">
+                                                <div className="col-xs-12 col-md-2 col-sm-2">
                                                     <div className="box">
                                                         <DeleteCategoryC
                                                             name={name.node.name}
