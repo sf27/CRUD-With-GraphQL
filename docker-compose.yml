@@ -1,0 +1,20 @@
+version: '2'
+
+services:
+  django:
+      extends:
+        file: docker-compose-common.yml
+        service: django-develoment
+      command: python manage.py runserver 0.0.0.0:8000
+      ports:
+        - '8000:8000'
+
+  node:
+      extends:
+        file: docker-compose-common.yml
+        service: node-develoment
+      command: npm start
+      ports:
+        - '8080:8080'
+      env_file:
+          - .env

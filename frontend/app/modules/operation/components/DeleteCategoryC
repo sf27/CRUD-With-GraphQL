@@ -1,0 +1,46 @@
+import React, {Component, PropTypes} from "react";
+import gql from "graphql-tag";
+import {graphql} from "react-apollo";
+
+class DeleteCategoryC extends Component {
+    handleClick = () => {
+        this.props.submit(this.props.name)
+            .then(({data}) => {
+                console.log('got data', data);
+                this.props.refetch();
+                this.props.onClickSubstract();
+            }).catch((error) => {
+                console.log('there was an error sending the query', error);
+            }
+        );
+    };
+
+    render() {
+        return (
+            <button onClick={this.handleClick}>X</button>
+        );
+    }
+}
+
+DeleteCategoryC.propTypes = {
+    submit: PropTypes.func.isRequired,
+    refetch: PropTypes.func.isRequired
+};
+
+const DeleteCategoryMutation = gql`
+    mutation DeleteCategoryMutation ($name: String!){
+        deleteCategory(name: $name){
+            category {
+                name
+            }
+            ok
+        }
+    }`;
+
+const DeleteCategoryComponent = graphql(DeleteCategoryMutation, {
+    props: ({mutate}) => ({
+        submit: (name) => mutate({variables: {name}}),
+    }),
+})(DeleteCategoryC);
+
+export default DeleteCategoryComponent;

@@ -1,0 +1,16 @@
+FROM python:3.5
+RUN apt-get update -qq
+RUN pip install --upgrade pip
+
+MAINTAINER @eliosf27
+
+ENV PYTHONUNBUFFERED 1
+
+RUN apt-get install -y gcc gettext \
+    --no-install-recommends && rm -rf /var/lib/apt/lists/*
+
+ADD requirements.txt requirements.txt
+RUN pip install -r requirements.txt
+
+# Update font cache
+RUN fc-cache -f -v
