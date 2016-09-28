@@ -1,4 +1,4 @@
-import {ADD, ADD_NUMBER, SUBSTRACT} from "./actions";
+import {ADD, SUBSTRACT} from "./actions";
 
 export const onClickAdd = () => ({type: ADD});
 export const onClickSubstract = () => ({type: SUBSTRACT});
