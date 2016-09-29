@@ -7,7 +7,4 @@ RUN apt-get install -y -qq \
     curl \
     --no-install-recommends && rm -rf /var/lib/apt/lists/*
 
-# ESLint And Webpack
-RUN npm install -g --silent webpack webpack-dev-server
-
 ADD ./frontend/package.json package.json

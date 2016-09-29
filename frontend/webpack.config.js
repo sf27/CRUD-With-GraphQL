@@ -12,7 +12,7 @@ module.exports = {
                 exclude: /(node_modules|bower_components)/,
                 loader: 'babel-loader',
                 query: {
-                    presets: ['es2015', 'react', 'stage-2', {"plugins": ["./plugins/babelRelayPlugin"]}]
+                    presets: ['es2015', 'react', 'stage-2']
                 }
             }
         ]
