@@ -4,20 +4,8 @@ import {onClickAdd, onClickSubstract, addNTimes} from "../reducers";
 import gql from "graphql-tag";
 import {graphql} from "react-apollo";
 import SaveCategoryC from "./SaveCategoryC";
-import EditCategoryC from "./EditCategoryC";
-import DeleteCategoryC from "./DeleteCategoryC";
-
-class CounterCategories extends Component {
-    render() {
-        const {number} = this.props;
-        return <div>
-            <div className="page-header">
-                <h1>Counter</h1>
-                <h2>{number}</h2>
-            </div>
-        </div>
-    }
-}
+import CategoryItem from "./CategoryItemC";
+import CounterCategories from "./CounterCategoriesC";
 
 class ListCategories extends Component {
     render() {
@@ -45,33 +33,17 @@ class ListCategories extends Component {
                                 {loading ?
                                     "Loading categories" :
                                     allCategories.edges.map((name, index) => {
-                                        return <div className="box list-group-item" type="button" key={ index }>
-                                            <div className="row">
-                                                <div className="col-xs-12 col-md-10 col-sm-10">
-                                                    <div className="box">
-                                                        <EditCategoryC
-                                                            key={ index }
-                                                            name={name.node.name}
-                                                            index={index}
-                                                            refetch={refetch}
-                                                        />
-                                                    </div>
-                                                </div>
-                                                <div className="col-xs-12 col-md-2 col-sm-2">
-                                                    <div className="box">
-                                                        <DeleteCategoryC
-                                                            name={name.node.name}
-                                                            onClickSubstract={onClickSubstract}
-                                                            refetch={refetch}
-                                                        />
-                                                    </div>
-                                                </div>
-                                            </div>
+                                        return <div className="box list-group-item"
+                                                    type="button" key={ index }>
+                                            <CategoryItem
+                                                index={index}
+                                                name={name}
+                                                refetch={refetch}
+                                                onClickSubstract={onClickSubstract}
+                                            />
                                         </div>
                                     })
                                 }
-
-
                             </div>
                         </div>
                     </div>

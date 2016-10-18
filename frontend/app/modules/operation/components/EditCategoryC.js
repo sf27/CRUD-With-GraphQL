@@ -7,7 +7,6 @@ class EditCategoryC extends Component {
     onSave = (newValue) => {
         this.props.submit(this.props.name, newValue)
             .then(({data}) => {
-                console.log('got data', data);
                 this.props.refetch();
             }).catch((error) => {
                 console.log('there was an error sending the query', error);

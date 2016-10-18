@@ -27,7 +27,6 @@ class SaveCategoryC extends Component {
                     this.setState({message: ""});
                     this.props.refetch();
                     this.props.onClickAdd();
-
                 }).catch((error) => {
                     console.log('there was an error sending the query', error);
                 }

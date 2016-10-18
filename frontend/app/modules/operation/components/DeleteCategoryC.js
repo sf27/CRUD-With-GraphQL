@@ -6,7 +6,6 @@ class DeleteCategoryC extends Component {
     handleClick = () => {
         this.props.submit(this.props.name)
             .then(({data}) => {
-                console.log('got data', data);
                 this.props.refetch();
                 this.props.onClickSubstract();
             }).catch((error) => {
