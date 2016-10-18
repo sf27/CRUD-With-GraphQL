@@ -2,7 +2,7 @@ import React, {Component, PropTypes} from "react";
 import EditCategoryC from "./EditCategoryC";
 import DeleteCategoryC from "./DeleteCategoryC";
 
-class ItemCategoriesC extends Component {
+class CategoryItemC extends Component {
     render() {
         const {index, name, refetch, onClickSubstract} = this.props;
         return <div className="row">
@@ -29,11 +29,11 @@ class ItemCategoriesC extends Component {
     }
 }
 
-ItemCategoriesC.propTypes = {
+CategoryItemC.propTypes = {
     index: PropTypes.number.isRequired,
     name: PropTypes.object.isRequired,
     refetch: PropTypes.func.isRequired,
     onClickSubstract: PropTypes.func.isRequired
 };
 
-export default ItemCategoriesC;
+export default CategoryItemC;
