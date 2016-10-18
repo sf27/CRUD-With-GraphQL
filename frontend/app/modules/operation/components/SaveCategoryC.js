@@ -24,7 +24,6 @@ class SaveCategoryC extends Component {
         if (this.state.message) {
             this.props.submit(this.state.message)
                 .then(({data}) => {
-                    console.log('got data', data);
                     this.setState({message: ""});
                     this.props.refetch();
                     this.props.onClickAdd();
